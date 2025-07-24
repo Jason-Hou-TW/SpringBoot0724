@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div th:insert="home::navbar"></div>
+<h1>
+  新增飲料
+</h1>
+<form th:object="${form}" method="post" th:action="@{/beverages/modify}">
+  <div hidden><label>id</label><input type="text" th:field="*{id}"/></div>
+  <label>title</label><input type="text" th:field="*{title}"/><br/>
+  <label>detail</label><input type="text" th:field="*{detail}"/><br/>
+  <label>price</label><input type="number" th:field="*{price}"/><br/>
+  <label>sugar</label><input type="number" step="0.1" th:field="*{sugar}"/><br/>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

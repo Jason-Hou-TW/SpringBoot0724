@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div th:insert="home::navbar"></div>
+<h1>
+  列表目前的飲料
+</h1>
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>detail</th>
+    <th>price</th>
+    <th>sugar</th>
+    <th>Delete</th>
+    <th>Modify</th>
+  </tr>
+  <tr th:each="b:${beverages}">
+    <td th:text="${b.id}"></td>
+    <td th:text="${b.title}"></td>
+    <td th:text="${b.detail}"></td>
+    <td th:text="${b.price}"></td>
+    <td th:text="${b.sugar}"></td>
+    <td><a th:href="@{/beverages/delete(id=${b.id})}">DELETE</a></td>
+    <td><a th:href="@{/beverages/modify(id=${b.id})}">Modify</a></td>
+  </tr>
+</table>
+</body>
+</html>
